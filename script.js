@@ -10,41 +10,66 @@
 // ];
 
 // JS Variables
-// empty arrayOfTasks
 
+// empty arrayOfTasks
+const arrayOfTasks = [];
+let newTask;
 
 // DOM Variables
 
-// taskList col div
-
-// individualTask form div
-
+// taskList
+const taskListDiv = document.querySelector(".task-list");
+// individualTask div
+const newTaskDiv = document.querySelector(".new-task");
 // addTask button
+const addTaskBtn = document.querySelector(".addTask");
 
-// deleteTask button
+// Function Definitions
+
+// makeId()
+function makeId() {
+  return Math.floor(Math.random() * (50 - 1) + 1);
+}
 
 
+// createNewTask()
+function createNewTask() {
+  // localStorage.taskListDiv = arrayOfTasks ???
+  taskListDiv.innerHTML = "";
+  // generate new task elements
+  const newDiv = document.createElement("div");
+  const newInput = document.createElement("input");
+  const newLabel = document.createElement("label");
+  const newBtn = document.createElement("button");
+
+ 
+// generate div
+  newDiv.classList.add("form-check");
+  newDiv.append(taskListDiv);
+
+  // generate input
+  newInput.classList.add("form-check-input");
+  newInput.type = "checkbox";
+  newInput.id = `${makeId()}`;
+  newInput.append(newDiv);
+
+// generate label
+  // TODO
+    // use local storage to access 
+
+// generate button
+}
 
 
-// Function Definitions 
-
-// 
-
-// createNewTask() 
-  // generate div
-  // generate object
-  // create 
 
 // deleteTask()
-
-
-
+// remove div,checkbox,label,delete button
 
 // Event Listeners
 
 // Window.addEventListener("load", create empty task array)
 
 // addTask.addEventListener("submit", create object/with appropriate props)
-  // e.preventDefault()
+// e.preventDefault()
 
 // deleteTask.addEventListener("click", remove task from array)
