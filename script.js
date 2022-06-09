@@ -18,7 +18,7 @@ let newTask;
 // DOM Variables
 
 // taskList
-const taskListDiv = document.querySelector(".task-list");
+const taskListDiv = document.querySelector(".col-lg.task-list");
 // individualTask div
 const newTaskDiv = document.querySelector(".new-task");
 // addTask button
@@ -31,10 +31,9 @@ function makeId() {
   return Math.floor(Math.random() * (50 - 1) + 1);
 }
 
-
 // createNewTask()
 function createNewTask() {
-  // localStorage.taskListDiv = arrayOfTasks ???
+  // localStorage.taskListDiv = arrayOfTasks
   taskListDiv.innerHTML = "";
   // generate new task elements
   const newDiv = document.createElement("div");
@@ -42,25 +41,24 @@ function createNewTask() {
   const newLabel = document.createElement("label");
   const newBtn = document.createElement("button");
 
- 
-// generate div
+  // generate div
   newDiv.classList.add("form-check");
-  newDiv.append(taskListDiv);
+  taskListDiv.append(newDiv);
 
   // generate input
   newInput.classList.add("form-check-input");
   newInput.type = "checkbox";
   newInput.id = `${makeId()}`;
-  newInput.append(newDiv);
+  newDiv.append(newInput);
 
-// generate label
+  // generate label
   // TODO
-    // use local storage to access 
+  // use local storage to access
 
-// generate button
+  // generate button
 }
 
-
+createNewTask();
 
 // deleteTask()
 // remove div,checkbox,label,delete button
