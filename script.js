@@ -25,7 +25,9 @@ const newTaskDiv = document.querySelector(".new-task");
 const addTaskBtn = document.querySelector(".addTask");
 
 // Function Definitions
+{
 
+}
 // makeId()
 function makeId() {
   return Math.floor(Math.random() * (50 - 1) + 1);
@@ -64,6 +66,8 @@ createNewTask();
 // remove div,checkbox,label,delete button
 
 // Event Listeners
+
+// When add is clicked, new row populates
 
 // Window.addEventListener("load", create empty task array)
 
