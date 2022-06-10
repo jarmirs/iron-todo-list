@@ -8,52 +8,50 @@ const arrayOfTasks = [
     checked: true,
   },
   {
-    task: "Buy bananas",
+    task: "Buy cat",
     checked: true,
   },
   {
-    task: "Buy bananas",
+    task: "Buy cash",
     checked: true,
   },
 ];
 
-for (let i = 0; i < arrayOfTasks.length; i++) {
-  console.log(arrayOfTasks[i].task);
-}
-
-
-
-// js variables
+// DOM variables
+const taskListDiv = document.querySelector("#listItems");
 const newTasks = document.getElementById("task-input");
+const addButton = document.getElementById("button-addon2");
+
+// Function Definitions
+function generateNewItemList() {
+  taskListDiv.innerHTML = "";
+  for (let i = 0; i < arrayOfTasks.length; i++) {
+    const task = arrayOfTasks[i];
+    const newDiv = document.createElement("div");
+    const newButton = document.createElement("button");
+  
+
+    newDiv.className = "col-sm-2 col-xs-1";
+    newDiv.innerText = task.task;
+    newButton.className = "btn btn-info";
+
+    newDiv.append(newButton);
+    taskListDiv.append(newDiv);
+    console.log(task.task);
+    }
+}
+generateNewItemList();
+
+
+
+
+// JS Variables
 
 // Create an array of objects
 
-// DOM variables
-const newTaskEl = document.createElement("new-task");
-const taskListDiv = document.querySelector("#listItems");
 
-const phoneRowDiv = document.getElementById("phone-row");
 
-for (let i = 0; i < users.length; i++) {
-  console.log(users[i].phone);
-  const newDiv = document.createElement("div");
-  newDiv.className = "col-12";
 
-  const h1El = document.createElement("h1");
-  h1El.innerText = users[i].name;
-  newDiv.append(h1El);
-
-  const pEl = document.createElement("p");
-  pEl.innerText = users[i].phone;
-  newDiv.append(pEl);
-
-  phoneRowDiv.append(newDiv);
-}
-
-newTaskEl.innerHTML = "This is a new task";
-newTaskEl.append("div");
-
-// Function Definitions
 
 function createTask() {
   taskListDiv.innerHTML = "";
@@ -70,4 +68,6 @@ function createTask() {
   newDiv.append(newInput);
 }
 
-// createTask();
+
+// Event Listeners
+addButton.addEventListener("click", generateNewItemList())
