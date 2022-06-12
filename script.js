@@ -18,40 +18,33 @@ const arrayOfTasks = [
 ];
 
 // DOM variables
-const taskListDiv = document.querySelector("#listItems");
-const newTasks = document.getElementById("task-input");
-const addButton = document.getElementById("button-addon2");
+// const taskListDiv = document.querySelector("#listItems");
+const newTaskForm = document.getElementById("task-input");
+const addButton = document.getElementById("add-task-btn");
+const newTaskInput = document.getElementById("new-task");
 
 // Function Definitions
-function generateNewItemList() {
-  taskListDiv.innerHTML = "";
-  for (let i = 0; i < arrayOfTasks.length; i++) {
-    const task = arrayOfTasks[i];
-    const newDiv = document.createElement("div");
-    const newButton = document.createElement("button");
-  
+// function generateNewItemList() {
+//   taskListDiv.innerHTML = "";
+//   for (let i = 0; i < arrayOfTasks.length; i++) {
+//     const task = arrayOfTasks[i];
+//     const newDiv = document.createElement("div");
+//     const newButton = document.createElement("button");
 
-    newDiv.className = "col-sm-2 col-xs-1";
-    newDiv.innerText = task.task;
-    newButton.className = "btn btn-info";
+//     newDiv.className = "col-sm-2 col-xs-1";
+//     newDiv.innerText = task.task;
+//     newButton.className = "btn btn-info";
 
-    newDiv.append(newButton);
-    taskListDiv.append(newDiv);
-    console.log(task.task);
-    }
-}
-generateNewItemList();
-
-
-
+//     newDiv.append(newButton);
+//     taskListDiv.append(newDiv);
+//     console.log(task.task);
+//   }
+// }
+// generateNewItemList();
 
 // JS Variables
 
 // Create an array of objects
-
-
-
-
 
 function createTask() {
   taskListDiv.innerHTML = "";
@@ -68,6 +61,17 @@ function createTask() {
   newDiv.append(newInput);
 }
 
-
 // Event Listeners
-addButton.addEventListener("click", generateNewItemList())
+addButton.addEventListener("click", function () {
+  const task = newTaskInput.value;
+
+  if (task) {
+    localStorage.setItem("task", task);
+    location.reload();
+  }
+  for (let i = 0; i < localStorage.length; i++) {
+    const addedTask = localStorage.key(i);
+    console.log(addedTask);
+  }
+  console.log(localStorage);
+});
