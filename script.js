@@ -22,6 +22,7 @@ const arrayOfTasks = [
 const newTaskForm = document.getElementById("task-input");
 const addButton = document.getElementById("add-task-btn");
 const newTaskInput = document.getElementById("new-task");
+const listItems = document.getElementById("listItems");
 
 // Function Definitions
 // function generateNewItemList() {
@@ -46,20 +47,20 @@ const newTaskInput = document.getElementById("new-task");
 
 // Create an array of objects
 
-function createTask() {
-  taskListDiv.innerHTML = "";
+// function createTask() {
+//   taskListDiv.innerHTML = "";
 
-  const newDiv = document.createElement("div");
-  const newInput = document.createElement("input");
-  const newLabel = document.createElement("label");
-  const newBtn = document.createElement("button");
+//   const newDiv = document.createElement("div");
+//   const newInput = document.createElement("input");
+//   const newLabel = document.createElement("label");
+//   const newBtn = document.createElement("button");
 
-  newDiv.className = "form-check";
-  newInput.className = "form-check-input";
+//   newDiv.className = "form-check";
+//   newInput.className = "form-check-input";
 
-  taskListDiv.append(newDiv);
-  newDiv.append(newInput);
-}
+//   taskListDiv.append(newDiv);
+//   newDiv.append(newInput);
+// }
 
 // Event Listeners
 addButton.addEventListener("click", function () {
@@ -68,10 +69,12 @@ addButton.addEventListener("click", function () {
   if (task) {
     localStorage.setItem("task", task);
     location.reload();
-  }
+    }
+  });
+
   for (let i = 0; i < localStorage.length; i++) {
     const addedTask = localStorage.key(i);
-    console.log(addedTask);
+    // console.log(addedTask);
+
+    listItems.innerHTML += `${addedTask}<br />`;
   }
-  console.log(localStorage);
-});
