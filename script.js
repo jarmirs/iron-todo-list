@@ -47,34 +47,51 @@ const listItems = document.getElementById("listItems");
 
 // Create an array of objects
 
-// function createTask() {
-//   taskListDiv.innerHTML = "";
+function newTaskObj(newTask) {
+  const addedTask = {
+    id: Date.now(),
+    task: newTask,
+    checked: false,
+  };
+  localStorage.setItem(addedTask.id, newTask);
+}
 
-//   const newDiv = document.createElement("div");
-//   const newInput = document.createElement("input");
-//   const newLabel = document.createElement("label");
-//   const newBtn = document.createElement("button");
+function createTask(task) {
+  // listItems.innerHTML = "";
 
-//   newDiv.className = "form-check";
-//   newInput.className = "form-check-input";
+  const newFormDiv = document.createElement("div");
+  const newLi = document.createElement("li");
+  const newInput = document.createElement("input");
 
-//   taskListDiv.append(newDiv);
-//   newDiv.append(newInput);
-// }
+  const newLabel = document.createElement("label");
+  const newDeleteBtn = document.createElement("button");
+
+  newLi.className = "taskItem";
+  newFormDiv.className = "form-check";
+  newInput.className = "form-check-input";
+  newInput.type = "checkbox";
+  newLabel.className = "form-check-label";
+  newLabel.innerText = task;
+  newDeleteBtn.className = "btn btn-danger btn-sm";
+  newDeleteBtn.innerText = "Delete";
+
+  listItems.append(newFormDiv);
+  newFormDiv.append(newInput);
+  newFormDiv.append(newLabel);
+  newFormDiv.append(newDeleteBtn);
+}
 
 // Event Listeners
 addButton.addEventListener("click", function () {
   const task = newTaskInput.value;
+  createTask(task);
+});
 
-  if (task) {
-    localStorage.setItem("task", task);
-    location.reload();
-    }
-  });
 
+
+window.addEventListener("load", (evt) => {
   for (let i = 0; i < localStorage.length; i++) {
-    const addedTask = localStorage.key(i);
-    // console.log(addedTask);
-
-    listItems.innerHTML += `${addedTask}<br />`;
+    const key = localStorage.getItem(localStorage.key(i));
+    createTask(key);
   }
+});
