@@ -1,6 +1,13 @@
 body {
   background-color: gray;
 }
+/* .form-check {
+  flex: 1 1 0;
+}
 
-
-
+.form-check-input {
+  flex: 1 1 0;
+} */
+.btn-danger {
+  float: right;
+}

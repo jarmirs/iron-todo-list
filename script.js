@@ -86,8 +86,10 @@ addButton.addEventListener("click", function () {
   const task = newTaskInput.value;
   createTask(task);
 });
-
-
+// delete  task : not working
+addButton.addEventListener("click", (evt) => {
+  listItems.removeChild(newTaskInput);
+});
 
 window.addEventListener("load", (evt) => {
   for (let i = 0; i < localStorage.length; i++) {
