@@ -1,21 +1,21 @@
-const arrayOfTasks = [
-  {
-    task: "Go to the vet",
-    checked: false,
-  },
-  {
-    task: "Buy bananas",
-    checked: true,
-  },
-  {
-    task: "Buy cat",
-    checked: true,
-  },
-  {
-    task: "Buy cash",
-    checked: true,
-  },
-];
+// const arrayOfTasks = [
+//   {
+//     task: "Go to the vet",
+//     checked: false,
+//   },
+//   {
+//     task: "Buy bananas",
+//     checked: true,
+//   },
+//   {
+//     task: "Buy cat",
+//     checked: true,
+//   },
+//   {
+//     task: "Buy cash",
+//     checked: true,
+//   },
+// ];
 
 // DOM variables
 // const taskListDiv = document.querySelector("#listItems");
@@ -26,25 +26,6 @@ const listItems = document.getElementById("listItems");
 const delBtn = document.querySelector(".btn-danger");
 
 // Function Definitions
-// function generateNewItemList() {
-//   taskListDiv.innerHTML = "";
-//   for (let i = 0; i < arrayOfTasks.length; i++) {
-//     const task = arrayOfTasks[i];
-//     const newDiv = document.createElement("div");
-//     const newButton = document.createElement("button");
-
-//     newDiv.className = "col-sm-2 col-xs-1";
-//     newDiv.innerText = task.task;
-//     newButton.className = "btn btn-info";
-
-//     newDiv.append(newButton);
-//     taskListDiv.append(newDiv);
-//     console.log(task.task);
-//   }
-// }
-// generateNewItemList();
-
-// JS Variables
 
 // Create an array of objects
 
@@ -58,7 +39,6 @@ function newTaskObj(newTask) {
 }
 
 function createTask(task) {
-  // listItems.innerHTML = "";
 
   const newFormDiv = document.createElement("div");
   const newLi = document.createElement("li");
@@ -96,7 +76,6 @@ addButton.addEventListener("click", function () {
 window.addEventListener("load", () => {
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.getItem(localStorage.key(i));
-    console.log(key);
     createTask(key);
   }
 });
