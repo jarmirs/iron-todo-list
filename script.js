@@ -23,6 +23,7 @@ const newTaskForm = document.getElementById("task-input");
 const addButton = document.getElementById("add-task-btn");
 const newTaskInput = document.getElementById("new-task");
 const listItems = document.getElementById("listItems");
+const delBtn = document.querySelector(".btn-danger");
 
 // Function Definitions
 // function generateNewItemList() {
@@ -84,16 +85,18 @@ function createTask(task) {
 // Event Listeners
 addButton.addEventListener("click", function () {
   const task = newTaskInput.value;
+  newTaskObj(task);
   createTask(task);
 });
 // delete  task : not working
-addButton.addEventListener("click", (evt) => {
-  listItems.removeChild(newTaskInput);
-});
+// delBtn.addEventListener("click", (evt) => {
+//   listItems.removeChild(newTaskInput);
+// });
 
-window.addEventListener("load", (evt) => {
+window.addEventListener("load", () => {
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.getItem(localStorage.key(i));
+    console.log(key);
     createTask(key);
   }
 });
